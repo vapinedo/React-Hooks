@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useCounter } from '@core/hooks/useCounter';
 
-export const CounterPage = () => {
+export const CounterWithCustomHook = () => {
 
-    const [state, setState] = useState(1);
-
-    const decrement = () => {
-        setState(state - 1);
-    };
-
-    const increment = () => {
-        setState(state + 1);
-    };
+    const [counter, decrement, reset, increment] = useCounter();
     
     return (
         <>
-            <h3>Counter</h3>
+            <h3>Counter with custom hook</h3>   
             <hr />
 
             <section className="row g-3">
@@ -23,13 +16,15 @@ export const CounterPage = () => {
                 </div>
 
                 <div className="col-auto">
-                    <input type="text" readOnly={true} className="form-control" value={state} />
+                    <input type="text" readOnly={true} className="form-control" value={counter} />
                 </div>
 
                 <div className="col-auto">
                     <button onClick={increment} className="btn btn-primary">+1</button>
+                    <button onClick={reset} className="btn btn-outline-danger mx-3">Reset</button>
                 </div>
             </section>
+
         </>
     )
 }
