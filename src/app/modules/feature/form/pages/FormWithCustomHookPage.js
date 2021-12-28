@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from '@core/hooks/useForm';
 
-export const FormWithCustomHook = () => {
+export const FormWithCustomHookPage = () => {
 
-    const [formState, setFormState] = useState({
+    const [formState, onInputChange] = useForm({
         name: "",
-        email: ""
+        email: "",
+        password: ""
     });
-    const { name, email } = formState;
+    const { name, email, password } = formState;
 
-    const onInputChange = ({ target }) => {
-        setFormState({
-            ...formState,
-            [target.name]: target.value
-        });
+    const onSubmit = (e) => {   
+        e.preventDefault();
+        console.log(formState);
     };
     
     return (
-        <>
+        <form onSubmit={onSubmit}>
             <h3>Form with custom hook</h3>   
             <hr />
 
@@ -38,7 +38,17 @@ export const FormWithCustomHook = () => {
                     placeholder="Tu email"
                     onChange={onInputChange}
                     className="form-control mt-4" />
+
+                <input 
+                    name="password" 
+                    type="password" 
+                    value={password}
+                    placeholder="Tu password"
+                    onChange={onInputChange}
+                    className="form-control mt-4" />
             </div>
-        </>
+
+            <button type="submit" className="btn btn-primary mt-4">Guardar</button>
+        </form>
     )
 }
