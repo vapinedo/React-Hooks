@@ -7,12 +7,13 @@ import "./App.css";
 // import { FormWithCustomHookPage } from '@feature/form/pages/FormWithCustomHookPage';
 // import { BreakingBadPage } from '@feature/breaking-bad/BreakingBadPage';
 // import { FocusPage } from '@feature/focus/FocusPage';
-import { RealCaseRef } from '@feature/focus/RealCaseRef';
+// import { RealCaseRef } from '@feature/focus/RealCaseRef';
+import { MainPage } from '@feature/auth-context/MainPage';
 
 export const App = () => {
     return (
         <main className="container main-container">
-            <RealCaseRef />
+            <MainPage />
         </main>
     )
 }
