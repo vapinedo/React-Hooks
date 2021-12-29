@@ -1,9 +1,12 @@
 import React from 'react'
 import { useFetch } from '@core/hooks/useFetch'
+import { useCounter } from '@core/hooks/useCounter';
 
 export const BreakingBadPage = () => {
 
-    const { isLoading, data } = useFetch(`https://www.breakingbadapi.com/api/quotes/1`);
+    const {counter, increment} = useCounter(1);
+
+    const { isLoading, data } = useFetch(`https://www.breakingbadapi.com/api/quotes/${counter}`);
     const { author, quote } = !!data && data[0];
     
     return (
@@ -23,6 +26,8 @@ export const BreakingBadPage = () => {
                     <footer className="blockquote-footer">{author}</footer>
                 </blockquote>
             }
+
+            <button onClick={increment} className="btn btn-primary">Next Quote</button>
         </>
     )
 }

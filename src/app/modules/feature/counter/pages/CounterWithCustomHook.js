@@ -3,7 +3,7 @@ import { useCounter } from '@core/hooks/useCounter';
 
 export const CounterWithCustomHook = () => {
 
-    const [counter, decrement, reset, increment] = useCounter();
+    const {counter, decrement, reset, increment} = useCounter();
     
     return (
         <>
