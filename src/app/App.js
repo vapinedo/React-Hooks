@@ -8,7 +8,7 @@ import "./App.css";
 // import { BreakingBadPage } from '@feature/breaking-bad/BreakingBadPage';
 // import { FocusPage } from '@feature/focus/FocusPage';
 // import { RealCaseRef } from '@feature/focus/RealCaseRef';
-import { MainPage } from '@feature/auth-context/MainPage';
+import { MainPage } from '@feature/auth-context/pages/MainPage';
 
 export const App = () => {
     return (
