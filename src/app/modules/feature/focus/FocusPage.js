@@ -9,12 +9,12 @@ export const FocusPage = () => {
     }
 
     return (
-        <div>
+        <>
             <h3>Focus page</h3>
             <hr />
 
             <input ref={inputRef} type="text" className="form-control mt-4" placeholder="Tu nombre" />
             <button onClick={onFocus} className="btn btn-primary mt-4">Focus</button>
-        </div>
+        </>
     )
 }

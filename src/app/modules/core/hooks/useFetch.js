@@ -1,6 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export const useFetch = (url) => {
+
+    const isComponentMounted = useRef(true);
+
+    useLayoutEffect(() => {
+        return () => {
+            isComponentMounted.current = false;
+        };
+    }, []);
 
     const [state, setState] = useState({ 
         data: null,
@@ -19,11 +27,15 @@ export const useFetch = (url) => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                setState({
-                    data,
-                    error: null,
-                    isLoading: false
-                });
+
+                if (isComponentMounted.current) {
+                    setState({
+                        data,
+                        error: null,
+                        isLoading: false
+                    });
+                }
+                
             });
     }, [url]);
 

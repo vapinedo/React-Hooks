@@ -6,12 +6,13 @@ import "./App.css";
 // import { SimpleFormPage } from '@feature/form/pages/SimpleFormPage';
 // import { FormWithCustomHookPage } from '@feature/form/pages/FormWithCustomHookPage';
 // import { BreakingBadPage } from '@feature/breaking-bad/BreakingBadPage';
-import { FocusPage } from '@feature/focus/FocusPage';
+// import { FocusPage } from '@feature/focus/FocusPage';
+import { RealCaseRef } from '@feature/focus/RealCaseRef';
 
 export const App = () => {
     return (
         <main className="container main-container">
-            <FocusPage />
+            <RealCaseRef />
         </main>
     )
 }
